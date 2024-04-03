@@ -1,0 +1,12 @@
+@tailwind components;
+@tailwind utilities;
+
+.cm-target {
+  background-color: #ff9999;
+  outline: 1px solid red;
+}
+
+.cm-target-fulfilled {
+  background-color: #99ff99;
+  outline: 1px solid green;
+}

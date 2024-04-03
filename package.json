@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "@types/react": "^18.2.74",
+    "@types/react-dom": "^18.2.23",
+    "concurrently": "^8.2.2",
+    "esbuild": "^0.20.2",
+    "esbuild-plugin-copy": "^2.1.1",
+    "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.3.3",
+    "@codemirror/state": "^6.4.1",
+    "@codemirror/view": "^6.26.1",
+    "@picocss/pico": "^2.0.6",
+    "@replit/codemirror-vim": "^6.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "build": "concurrently \"node build.mjs\" \"tailwindcss -i ./src/index.css -o ./build/index.css --watch\""
+  }
+}
