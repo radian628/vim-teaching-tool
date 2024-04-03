@@ -10,3 +10,18 @@
   background-color: #99ff99;
   outline: 1px solid green;
 }
+
+.cm-goal-text {
+  opacity: 0.5;
+}
+
+.cm-similarity-incorrect {
+  color: #880000;
+}
+.cm-similarity-shifted {
+  color: #888800;
+}
+
+.cm-similarity-correct {
+  color: #008800;
+}

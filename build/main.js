@@ -1084,7 +1084,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState3(initialState) {
+          function useState4(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1096,7 +1096,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect3(create, deps) {
+          function useEffect4(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1878,7 +1878,7 @@
           exports.useContext = useContext;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect3;
+          exports.useEffect = useEffect4;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
@@ -1886,7 +1886,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef2;
-          exports.useState = useState3;
+          exports.useState = useState4;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2382,9 +2382,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React5 = require_react();
+          var React6 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React5.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -2426,7 +2426,7 @@
               Function.prototype.apply.call(console[level], console, argsWithFormat);
             }
           }
-          var FunctionComponent = 0;
+          var FunctionComponent2 = 0;
           var ClassComponent = 1;
           var IndeterminateComponent = 2;
           var HostRoot = 3;
@@ -3472,7 +3472,7 @@
                 return describeBuiltInComponentFrame("Suspense");
               case SuspenseListComponent:
                 return describeBuiltInComponentFrame("SuspenseList");
-              case FunctionComponent:
+              case FunctionComponent2:
               case IndeterminateComponent:
               case SimpleMemoComponent:
                 return describeFunctionComponentFrame(fiber.type);
@@ -3619,7 +3619,7 @@
               case TracingMarkerComponent:
                 return "TracingMarker";
               case ClassComponent:
-              case FunctionComponent:
+              case FunctionComponent2:
               case IncompleteClassComponent:
               case IndeterminateComponent:
               case MemoComponent:
@@ -3989,7 +3989,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React5.Children.forEach(props.children, function(child) {
+                  React6.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12436,7 +12436,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React5.Component().refs;
+          var emptyRefsObject = new React6.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -16041,7 +16041,7 @@
           }
           function resetSuspendedComponent(sourceFiber, rootRenderLanes) {
             var tag = sourceFiber.tag;
-            if ((sourceFiber.mode & ConcurrentMode) === NoMode && (tag === FunctionComponent || tag === ForwardRef || tag === SimpleMemoComponent)) {
+            if ((sourceFiber.mode & ConcurrentMode) === NoMode && (tag === FunctionComponent2 || tag === ForwardRef || tag === SimpleMemoComponent)) {
               var currentSource = sourceFiber.alternate;
               if (currentSource) {
                 sourceFiber.updateQueue = currentSource.updateQueue;
@@ -16725,7 +16725,7 @@
             var resolvedProps = resolveDefaultProps(Component, props);
             var child;
             switch (resolvedTag) {
-              case FunctionComponent: {
+              case FunctionComponent2: {
                 {
                   validateFunctionComponentInDev(workInProgress2, Component);
                   workInProgress2.type = Component = resolveFunctionForHotReloading(Component);
@@ -16868,7 +16868,7 @@
               mountClassInstance(workInProgress2, Component, props, renderLanes2);
               return finishClassComponent(null, workInProgress2, Component, true, hasContext, renderLanes2);
             } else {
-              workInProgress2.tag = FunctionComponent;
+              workInProgress2.tag = FunctionComponent2;
               {
                 if (workInProgress2.mode & StrictLegacyMode) {
                   setIsStrictModeForDevtools(true);
@@ -17810,7 +17810,7 @@
                 var elementType = workInProgress2.elementType;
                 return mountLazyComponent(current2, workInProgress2, elementType, renderLanes2);
               }
-              case FunctionComponent: {
+              case FunctionComponent2: {
                 var Component = workInProgress2.type;
                 var unresolvedProps = workInProgress2.pendingProps;
                 var resolvedProps = workInProgress2.elementType === Component ? unresolvedProps : resolveDefaultProps(Component, unresolvedProps);
@@ -18109,7 +18109,7 @@
               case IndeterminateComponent:
               case LazyComponent:
               case SimpleMemoComponent:
-              case FunctionComponent:
+              case FunctionComponent2:
               case ForwardRef:
               case Fragment:
               case Mode:
@@ -18692,7 +18692,7 @@
             if ((flags & Snapshot) !== NoFlags) {
               setCurrentFiber(finishedWork);
               switch (finishedWork.tag) {
-                case FunctionComponent:
+                case FunctionComponent2:
                 case ForwardRef:
                 case SimpleMemoComponent: {
                   break;
@@ -18887,7 +18887,7 @@
           function commitLayoutEffectOnFiber(finishedRoot, current2, finishedWork, committedLanes) {
             if ((finishedWork.flags & LayoutMask) !== NoFlags) {
               switch (finishedWork.tag) {
-                case FunctionComponent:
+                case FunctionComponent2:
                 case ForwardRef:
                 case SimpleMemoComponent: {
                   if (!offscreenSubtreeWasHidden) {
@@ -19068,7 +19068,7 @@
           }
           function reappearLayoutEffectsOnFiber(node) {
             switch (node.tag) {
-              case FunctionComponent:
+              case FunctionComponent2:
               case ForwardRef:
               case SimpleMemoComponent: {
                 if (node.mode & ProfileMode) {
@@ -19438,7 +19438,7 @@
                 }
                 return;
               }
-              case FunctionComponent:
+              case FunctionComponent2:
               case ForwardRef:
               case MemoComponent:
               case SimpleMemoComponent: {
@@ -19593,7 +19593,7 @@
             var current2 = finishedWork.alternate;
             var flags = finishedWork.flags;
             switch (finishedWork.tag) {
-              case FunctionComponent:
+              case FunctionComponent2:
               case ForwardRef:
               case MemoComponent:
               case SimpleMemoComponent: {
@@ -19902,7 +19902,7 @@
               var fiber = nextEffect;
               var firstChild = fiber.child;
               switch (fiber.tag) {
-                case FunctionComponent:
+                case FunctionComponent2:
                 case ForwardRef:
                 case MemoComponent:
                 case SimpleMemoComponent: {
@@ -20048,7 +20048,7 @@
           }
           function commitPassiveMountOnFiber(finishedRoot, finishedWork, committedLanes, committedTransitions) {
             switch (finishedWork.tag) {
-              case FunctionComponent:
+              case FunctionComponent2:
               case ForwardRef:
               case SimpleMemoComponent: {
                 if (finishedWork.mode & ProfileMode) {
@@ -20125,7 +20125,7 @@
           }
           function commitPassiveUnmountOnFiber(finishedWork) {
             switch (finishedWork.tag) {
-              case FunctionComponent:
+              case FunctionComponent2:
               case ForwardRef:
               case SimpleMemoComponent: {
                 if (finishedWork.mode & ProfileMode) {
@@ -20176,7 +20176,7 @@
           }
           function commitPassiveUnmountInsideDeletedTreeOnFiber(current2, nearestMountedAncestor) {
             switch (current2.tag) {
-              case FunctionComponent:
+              case FunctionComponent2:
               case ForwardRef:
               case SimpleMemoComponent: {
                 if (current2.mode & ProfileMode) {
@@ -20193,7 +20193,7 @@
           function invokeLayoutEffectMountInDEV(fiber) {
             {
               switch (fiber.tag) {
-                case FunctionComponent:
+                case FunctionComponent2:
                 case ForwardRef:
                 case SimpleMemoComponent: {
                   try {
@@ -20218,7 +20218,7 @@
           function invokePassiveEffectMountInDEV(fiber) {
             {
               switch (fiber.tag) {
-                case FunctionComponent:
+                case FunctionComponent2:
                 case ForwardRef:
                 case SimpleMemoComponent: {
                   try {
@@ -20234,7 +20234,7 @@
           function invokeLayoutEffectUnmountInDEV(fiber) {
             {
               switch (fiber.tag) {
-                case FunctionComponent:
+                case FunctionComponent2:
                 case ForwardRef:
                 case SimpleMemoComponent: {
                   try {
@@ -20257,7 +20257,7 @@
           function invokePassiveEffectUnmountInDEV(fiber) {
             {
               switch (fiber.tag) {
-                case FunctionComponent:
+                case FunctionComponent2:
                 case ForwardRef:
                 case SimpleMemoComponent: {
                   try {
@@ -21620,7 +21620,7 @@
                 return;
               }
               var tag = fiber.tag;
-              if (tag !== IndeterminateComponent && tag !== HostRoot && tag !== ClassComponent && tag !== FunctionComponent && tag !== ForwardRef && tag !== MemoComponent && tag !== SimpleMemoComponent) {
+              if (tag !== IndeterminateComponent && tag !== HostRoot && tag !== ClassComponent && tag !== FunctionComponent2 && tag !== ForwardRef && tag !== MemoComponent && tag !== SimpleMemoComponent) {
                 return;
               }
               var componentName = getComponentNameFromFiber(fiber) || "ReactComponent";
@@ -21683,7 +21683,7 @@
             {
               if (isRendering && !getIsUpdatingOpaqueValueInRenderPhaseInDEV()) {
                 switch (fiber.tag) {
-                  case FunctionComponent:
+                  case FunctionComponent2:
                   case ForwardRef:
                   case SimpleMemoComponent: {
                     var renderingComponentName = workInProgress && getComponentNameFromFiber(workInProgress) || "Unknown";
@@ -21750,7 +21750,7 @@
                 if (executionContext !== NoContext) {
                   return;
                 }
-                if (fiber.tag !== FunctionComponent && fiber.tag !== ForwardRef && fiber.tag !== SimpleMemoComponent) {
+                if (fiber.tag !== FunctionComponent2 && fiber.tag !== ForwardRef && fiber.tag !== SimpleMemoComponent) {
                   return;
                 }
               }
@@ -21844,7 +21844,7 @@
                   }
                   break;
                 }
-                case FunctionComponent: {
+                case FunctionComponent2: {
                   if (typeof nextType === "function") {
                     needsCompareFamilies = true;
                   } else if ($$typeofNextType === REACT_LAZY_TYPE) {
@@ -21923,7 +21923,7 @@
               var alternate = fiber.alternate, child = fiber.child, sibling = fiber.sibling, tag = fiber.tag, type = fiber.type;
               var candidateType = null;
               switch (tag) {
-                case FunctionComponent:
+                case FunctionComponent2:
                 case SimpleMemoComponent:
                 case ClassComponent:
                   candidateType = type;
@@ -21988,7 +21988,7 @@
               var child = fiber.child, sibling = fiber.sibling, tag = fiber.tag, type = fiber.type;
               var candidateType = null;
               switch (tag) {
-                case FunctionComponent:
+                case FunctionComponent2:
                 case SimpleMemoComponent:
                 case ClassComponent:
                   candidateType = type;
@@ -22135,7 +22135,7 @@
           }
           function resolveLazyComponentTag(Component) {
             if (typeof Component === "function") {
-              return shouldConstruct$1(Component) ? ClassComponent : FunctionComponent;
+              return shouldConstruct$1(Component) ? ClassComponent : FunctionComponent2;
             } else if (Component !== void 0 && Component !== null) {
               var $$typeof = Component.$$typeof;
               if ($$typeof === REACT_FORWARD_REF_TYPE) {
@@ -22195,7 +22195,7 @@
               workInProgress2._debugNeedsRemount = current2._debugNeedsRemount;
               switch (workInProgress2.tag) {
                 case IndeterminateComponent:
-                case FunctionComponent:
+                case FunctionComponent2:
                 case SimpleMemoComponent:
                   workInProgress2.type = resolveFunctionForHotReloading(current2.type);
                   break;
@@ -23509,10 +23509,10 @@
 
   // src/main.tsx
   var import_client = __toESM(require_client());
-  var import_react5 = __toESM(require_react());
+  var import_react7 = __toESM(require_react());
 
   // src/App.tsx
-  var import_react4 = __toESM(require_react());
+  var import_react6 = __toESM(require_react());
 
   // src/levels/InsertMode1.tsx
   var import_react2 = __toESM(require_react());
@@ -47300,6 +47300,129 @@
 
   // src/editor/Editor.tsx
   var import_react = __toESM(require_react());
+
+  // src/editor/goal-text-plugin.ts
+  var GoalTextWidget = class extends WidgetType {
+    goalText;
+    constructor(goalText) {
+      super();
+      this.goalText = goalText;
+    }
+    toDOM(view) {
+      const deco = document.createElement("span");
+      deco.className = "cm-goal-text";
+      const existingTextSize = view.state.doc.length ?? 0;
+      deco.innerText = this.goalText.slice(existingTextSize) ?? "";
+      return deco;
+    }
+  };
+  function updateGoalTextHighlightsSet(state, set, goalText) {
+    const existingTextSize = state.doc.length ?? 0;
+    console.log(existingTextSize);
+    set = set.update({
+      filter: () => false,
+      add: [
+        Decoration.widget({
+          widget: new GoalTextWidget(goalText),
+          side: 1,
+          inlineOrder: true,
+          block: false
+        }).range(existingTextSize)
+      ]
+    });
+    return set;
+  }
+  function getSimilarityRanges(testString, goalString) {
+    let ranges = [];
+    let currentRangeType = "correct";
+    let currentRangeStart = 0;
+    let currentTestStrIndex = 0;
+    for (let i = 0; i < goalString.length; i++) {
+      if (currentTestStrIndex >= testString.length)
+        break;
+      if (currentRangeType === "incorrect") {
+        if (goalString[i] === testString[currentTestStrIndex]) {
+          ranges.push({
+            from: currentRangeStart,
+            to: currentTestStrIndex,
+            type: currentRangeType
+          });
+          currentRangeStart = currentTestStrIndex;
+          currentRangeType = "shifted";
+        } else {
+          i--;
+          currentTestStrIndex++;
+        }
+        continue;
+      }
+      if (goalString[i] === testString[currentTestStrIndex]) {
+        currentTestStrIndex++;
+      } else {
+        i--;
+        ranges.push({
+          from: currentRangeStart,
+          to: currentTestStrIndex,
+          type: currentRangeType
+        });
+        currentRangeStart = currentTestStrIndex;
+        currentRangeType = "incorrect";
+      }
+    }
+    ranges.push({
+      from: currentRangeStart,
+      to: currentTestStrIndex + 1,
+      type: currentRangeType
+    });
+    return ranges;
+  }
+  function getSimilarityRangeDecorations(testString, goalString) {
+    const ranges = getSimilarityRanges(testString, goalString);
+    return ranges.map((r) => {
+      return Decoration.mark({
+        class: `cm-similarity-${r.type}`
+      }).range(r.from, r.to);
+    });
+  }
+  var goalTextPlugin = (goalText) => [
+    // show "goal text" placeholder
+    StateField.define({
+      create(state) {
+        return updateGoalTextHighlightsSet(state, Decoration.none, goalText);
+      },
+      update(value, tr) {
+        return updateGoalTextHighlightsSet(tr.state, value, goalText);
+      },
+      provide: (f) => EditorView.decorations.from(f)
+    }),
+    ViewPlugin.fromClass(
+      class {
+        update(update) {
+          console.log(
+            getSimilarityRanges(
+              update.view.state.doc.toString(),
+              "test string 123"
+            )
+          );
+        }
+      }
+    ),
+    // color text based on whether it is correct or not
+    StateField.define({
+      create(state) {
+        return Decoration.none.update({
+          add: getSimilarityRangeDecorations(state.doc.toString(), goalText)
+        });
+      },
+      update(value, tr) {
+        return Decoration.none.update({
+          add: getSimilarityRangeDecorations(tr.state.doc.toString(), goalText)
+        });
+      },
+      provide: (f) => EditorView.decorations.from(f)
+    })
+  ];
+
+  // src/editor/Editor.tsx
   var noRangeHighlights = [];
   function Editor(props) {
     const rangeHighlights = props.rangeHighlights ?? noRangeHighlights;
@@ -47317,6 +47440,7 @@
         selection: codemirrorRef.current?.state.selection ?? void 0,
         doc: props.text,
         extensions: [
+          // caret tracking
           ViewPlugin.fromClass(
             class {
               update(update) {
@@ -47329,6 +47453,7 @@
               }
             }
           ),
+          // caret target locations
           StateField.define({
             create() {
               return updateTargetHighlightsSet(Decoration.none);
@@ -47341,13 +47466,14 @@
           lineNumbers(),
           vim(),
           EditorState.readOnly.of(props.readonly ?? false),
-          drawSelection()
+          drawSelection(),
+          props.goalText ? goalTextPlugin(props.goalText) : []
         ]
       });
     }
     (0, import_react.useEffect)(() => {
       codemirrorRef.current?.setState(generateState());
-    }, [props.readonly, rangeHighlights]);
+    }, [props.readonly, rangeHighlights, props.goalText]);
     (0, import_react.useEffect)(() => {
       if (!codemirrorRef.current)
         return;
@@ -47368,19 +47494,21 @@
     return /* @__PURE__ */ import_react.default.createElement("div", { ref: containerRef });
   }
 
-  // src/levels/InsertMode1.tsx
-  function InsertMode1(props) {
-    const [text, setText] = (0, import_react3.useState)("");
-    return /* @__PURE__ */ import_react2.default.createElement("div", null, /* @__PURE__ */ import_react2.default.createElement("p", null, "Use ", /* @__PURE__ */ import_react2.default.createElement("kbd", null, "i"), " to enter ", /* @__PURE__ */ import_react2.default.createElement("dfn", null, "Insert Mode"), ". In Insert Mode, you can type text as you would in any text editor. This disables", " ", /* @__PURE__ */ import_react2.default.createElement("kbd", null, "hjkl"), " navigation and other forms of navigation \u2014 it is only for entering text."), /* @__PURE__ */ import_react2.default.createElement("p", null, "Use ", /* @__PURE__ */ import_react2.default.createElement("kbd", null, "ctrl+c"), " or ", /* @__PURE__ */ import_react2.default.createElement("kbd", null, "Esc"), " to exit Insert Mode and return to ", /* @__PURE__ */ import_react2.default.createElement("dfn", null, "Normal Mode"), ". In Normal Mode, you can use ", /* @__PURE__ */ import_react2.default.createElement("kbd", null, "hjkl"), " ", "and other navigation methods."), /* @__PURE__ */ import_react2.default.createElement("p", null, "Enter the required text below:"), /* @__PURE__ */ import_react2.default.createElement(Editor, { text: text ?? "", setText }));
-  }
-
-  // src/App.tsx
-  function App() {
-    return /* @__PURE__ */ import_react4.default.createElement("div", null, /* @__PURE__ */ import_react4.default.createElement(InsertMode1, { onComplete: () => {
-    } }));
-  }
-
   // src/wikipedia/fetch-random-article.tsx
+  function splitAtNChars(str, n) {
+    const splitStr = str.split(" ");
+    let outstr = "";
+    let chars = 0;
+    for (const str2 of splitStr) {
+      outstr += str2 + " ";
+      chars += str2.length;
+      if (chars > n) {
+        chars = 0;
+        outstr += "\n";
+      }
+    }
+    return outstr.slice(0, -1);
+  }
   async function fetchRandomWikipediaArticleText() {
     return Object.values(
       (await (await fetch(
@@ -47415,9 +47543,58 @@
     }
   };
   var wikipediaRand = new RandomWikipediaSource(10);
+  async function getRandomWikipediaText(chars) {
+    return await wikipediaRand.get(chars);
+  }
+  async function getRandomFormattedWikipediaText(chars) {
+    return splitAtNChars(await getRandomWikipediaText(chars), 60);
+  }
+
+  // src/levels/InsertMode1.tsx
+  function InsertMode1(props) {
+    const [text, setText] = (0, import_react3.useState)("");
+    const [goalText, setGoalText] = (0, import_react3.useState)();
+    (0, import_react2.useEffect)(() => {
+      if (goalText)
+        return;
+      (async () => {
+        setGoalText(await getRandomFormattedWikipediaText(100));
+      })();
+    });
+    return /* @__PURE__ */ import_react2.default.createElement("div", null, /* @__PURE__ */ import_react2.default.createElement("p", null, "Use ", /* @__PURE__ */ import_react2.default.createElement("kbd", null, "i"), " to enter ", /* @__PURE__ */ import_react2.default.createElement("dfn", null, "Insert Mode"), ". In Insert Mode, you can type text as you would in any text editor. This disables", " ", /* @__PURE__ */ import_react2.default.createElement("kbd", null, "hjkl"), " navigation and other forms of navigation \u2014 it is only for entering text."), /* @__PURE__ */ import_react2.default.createElement("p", null, "Use ", /* @__PURE__ */ import_react2.default.createElement("kbd", null, "ctrl+c"), " or ", /* @__PURE__ */ import_react2.default.createElement("kbd", null, "Esc"), " to exit Insert Mode and return to ", /* @__PURE__ */ import_react2.default.createElement("dfn", null, "Normal Mode"), ". In Normal Mode, you can use ", /* @__PURE__ */ import_react2.default.createElement("kbd", null, "hjkl"), " ", "and other navigation methods."), /* @__PURE__ */ import_react2.default.createElement("p", null, "Enter the required text below:"), /* @__PURE__ */ import_react2.default.createElement(Editor, { text: text ?? "", setText, goalText }), text === goalText && /* @__PURE__ */ import_react2.default.createElement(
+      "button",
+      {
+        onClick: () => {
+          props.onComplete();
+        }
+      },
+      "Continue"
+    ));
+  }
+
+  // src/levels-format/Levels.tsx
+  var import_react4 = __toESM(require_react());
+  var import_react5 = __toESM(require_react());
+  function LevelSequence(props) {
+    const [levelIndex, setLevelIndex] = (0, import_react5.useState)(0);
+    let CurrentLevel = props.levels[levelIndex];
+    return /* @__PURE__ */ import_react4.default.createElement(
+      CurrentLevel,
+      {
+        onComplete: () => {
+          setLevelIndex(levelIndex + 1);
+        }
+      }
+    );
+  }
+
+  // src/App.tsx
+  function App() {
+    return /* @__PURE__ */ import_react6.default.createElement("div", null, /* @__PURE__ */ import_react6.default.createElement(LevelSequence, { levels: [InsertMode1] }));
+  }
 
   // src/main.tsx
-  (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ import_react5.default.createElement(App, null));
+  (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ import_react7.default.createElement(App, null));
 })();
 /*! Bundled license information:
 

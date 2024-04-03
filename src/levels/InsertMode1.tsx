@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Editor } from "../editor/Editor";
+import { getRandomFormattedWikipediaText } from "../wikipedia/fetch-random-article";
+import { LevelProps } from "../levels-format/Levels";
 
 export function InsertMode1(props: LevelProps) {
   const [text, setText] = useState<string>("");
+
+  const [goalText, setGoalText] = useState<string>();
+
+  useEffect(() => {
+    if (goalText) return;
+    (async () => {
+      setGoalText(await getRandomFormattedWikipediaText(100));
+    })();
+  });
 
   return (
     <div>
@@ -19,7 +30,16 @@ export function InsertMode1(props: LevelProps) {
         and other navigation methods.
       </p>
       <p>Enter the required text below:</p>
-      <Editor text={text ?? ""} setText={setText}></Editor>
+      <Editor text={text ?? ""} setText={setText} goalText={goalText}></Editor>
+      {text === goalText && (
+        <button
+          onClick={() => {
+            props.onComplete();
+          }}
+        >
+          Continue
+        </button>
+      )}
     </div>
   );
 }
